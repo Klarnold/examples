@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcqpyicuvmdhi"]
+
+[ext_resource type="Script" uid="uid://crjlrfvclgjyn" path="res://scenes/ui/ingame_resource_pb/ingame_resource_pb.gd" id="1_n5v6w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5v6w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78j0b"]
+
+[node name="IngameResourcePB" type="ProgressBar"]
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_styles/background = SubResource("StyleBoxTexture_n5v6w")
+theme_override_styles/fill = SubResource("StyleBoxTexture_78j0b")
+step = 0.1
+value = 61.5
+script = ExtResource("1_n5v6w")

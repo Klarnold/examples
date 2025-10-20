@@ -1,0 +1,164 @@
+[gd_scene load_steps=6 format=3 uid="uid://o1x2urotj40c"]
+
+[ext_resource type="Script" uid="uid://dvqmq7nf76oxk" path="res://ui/global_ui.gd" id="1_a31wk"]
+[ext_resource type="PackedScene" uid="uid://cro7c40rw0msp" path="res://ui/pause_menu.tscn" id="2_d8w1j"]
+[ext_resource type="PackedScene" uid="uid://cihblnuitub1j" path="res://ui/main_menu.tscn" id="3_83y6d"]
+[ext_resource type="PackedScene" uid="uid://paojyypxnps5" path="res://ui/settings_main.tscn" id="4_xeol2"]
+[ext_resource type="PackedScene" uid="uid://0ktfbuanhn48" path="res://ui/levels_menu.tscn" id="5_xeol2"]
+
+[node name="GlobalUI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_a31wk")
+
+[node name="GameOverMenu" type="Control" parent="."]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameOverMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25098, 0.25098, 0.25098, 0.509804)
+
+[node name="PanelContainer" type="PanelContainer" parent="GameOverMenu"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverMenu/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="GameOverMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
+theme_override_font_sizes/font_size = 48
+text = "Game over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="GameOverMenu/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.55
+theme_override_colors/font_color = Color(0.199675, 0.842639, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+flat = true
+
+[node name="QuitButton" type="Button" parent="GameOverMenu/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+theme_override_colors/font_color = Color(0.199675, 0.842639, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+flat = true
+
+[node name="WinMenu" type="Control" parent="."]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="WinMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25098, 0.25098, 0.25098, 0.509804)
+
+[node name="PanelContainer" type="PanelContainer" parent="WinMenu"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinMenu/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="WinMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
+theme_override_font_sizes/font_size = 48
+text = "You потрачено!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinRestartButton" type="Button" parent="WinMenu/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.55
+theme_override_colors/font_color = Color(0.199675, 0.842639, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+flat = true
+
+[node name="WinQuitButton" type="Button" parent="WinMenu/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+theme_override_colors/font_color = Color(0.199675, 0.842639, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+flat = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_d8w1j")]
+unique_name_in_owner = true
+visible = false
+
+[node name="MainMenu" parent="." instance=ExtResource("3_83y6d")]
+unique_name_in_owner = true
+
+[node name="SettingsMain" parent="." instance=ExtResource("4_xeol2")]
+unique_name_in_owner = true
+visible = false
+
+[node name="LevelsMenu" parent="." instance=ExtResource("5_xeol2")]
+unique_name_in_owner = true
+visible = false

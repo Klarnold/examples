@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://jqysw0ij7j3n"]
+
+[ext_resource type="Script" uid="uid://cuptnndmla0yv" path="res://autoloads/global_audio.gd" id="2_5atyd"]
+
+[node name="GlobalAudio" type="AudioStreamPlayer"]
+process_mode = 3
+autoplay = true
+bus = &"Music"
+script = ExtResource("2_5atyd")

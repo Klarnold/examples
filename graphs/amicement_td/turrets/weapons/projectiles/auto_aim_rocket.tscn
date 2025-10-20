@@ -1,0 +1,153 @@
+[gd_scene load_steps=21 format=3 uid="uid://b4gppndqgu23o"]
+
+[ext_resource type="Texture2D" uid="uid://0bgaw6cyhrsb" path="res://turrets/weapons/particle_smoke.png" id="1_072ny"]
+[ext_resource type="Script" uid="uid://dckmf8yt2aycr" path="res://turrets/weapons/projectiles/auto_aim_rocket.gd" id="1_qfdqx"]
+[ext_resource type="Texture2D" uid="uid://bkvot3hdpkuxx" path="res://turrets/weapons/projectiles/missile_flame.png" id="2_potqs"]
+[ext_resource type="Texture2D" uid="uid://bf6567v8ax42a" path="res://turrets/weapons/projectiles/homing_missile.png" id="3_qfdqx"]
+[ext_resource type="Texture2D" uid="uid://x5rk2rs3n3a4" path="res://turrets/weapons/explosion/explosion_1.png" id="5_45oj8"]
+[ext_resource type="Texture2D" uid="uid://b43o1qcbebiuq" path="res://turrets/weapons/explosion/explosion_2.png" id="6_saybw"]
+[ext_resource type="Texture2D" uid="uid://c6nn0wxycfjgg" path="res://turrets/weapons/explosion/explosion_3.png" id="7_awu88"]
+[ext_resource type="Texture2D" uid="uid://b1xc5dnxvkrpf" path="res://turrets/weapons/explosion/explosion_4.png" id="8_7cwc5"]
+
+[sub_resource type="Gradient" id="Gradient_potqs"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qfdqx"]
+gradient = SubResource("Gradient_potqs")
+
+[sub_resource type="Curve" id="Curve_mtibb"]
+_data = [Vector2(0, 0.775281), 0.0, 0.0, 0, 0, Vector2(0.186667, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_20iii"]
+curve = SubResource("Curve_mtibb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jbvq7"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 30.0
+initial_velocity_min = 30.0
+initial_velocity_max = 83.19
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_20iii")
+color_ramp = SubResource("GradientTexture1D_qfdqx")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45oj8"]
+atlas = ExtResource("5_45oj8")
+region = Rect2(0, 0, 122, 122)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_saybw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qfdqx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45oj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_saybw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_awu88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7cwc5")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xpxeh"]
+radius = 14.0
+height = 78.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_saybw"]
+radius = 500.0
+
+[sub_resource type="Animation" id="Animation_saybw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RocketFlame:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_45oj8"]
+resource_name = "fire_anim"
+length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RocketFlame:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.35, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 0.8), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_awu88"]
+_data = {
+&"RESET": SubResource("Animation_saybw"),
+&"fire_anim": SubResource("Animation_45oj8")
+}
+
+[node name="AutoAimRocket" type="Area2D"]
+z_as_relative = false
+script = ExtResource("1_qfdqx")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-62, 0)
+amount = 400
+texture = ExtResource("1_072ny")
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_jbvq7")
+
+[node name="RocketFlame" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-82, 0)
+texture = ExtResource("2_potqs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-17, 0)
+sprite_frames = SubResource("SpriteFrames_saybw")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-19, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xpxeh")
+
+[node name="SearchArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+
+[node name="SearchAreaShape" type="CollisionShape2D" parent="SearchArea"]
+shape = SubResource("CircleShape2D_saybw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_awu88")
+}
+autoplay = "fire_anim"

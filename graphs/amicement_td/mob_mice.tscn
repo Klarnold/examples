@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://2mm68pg8vhlj"]
+
+[ext_resource type="Script" uid="uid://c7qbrhkjnw8np" path="res://mobs/mob.gd" id="1_cpxse"]
+
+[node name="MobMice" type="Area2D"]
+script = ExtResource("1_cpxse")
+metadata/_custom_type_script = "uid://c7qbrhkjnw8np"

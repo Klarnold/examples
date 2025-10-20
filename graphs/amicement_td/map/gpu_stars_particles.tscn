@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3qavqylpqlgm"]
+
+[ext_resource type="Texture2D" uid="uid://cvt7x5qeajnnf" path="res://turrets/upgrades/star.svg" id="1_jltvf"]
+
+[sub_resource type="Curve" id="Curve_q060c"]
+_data = [Vector2(0, 0.101124), 0.0, 0.0, 0, 0, Vector2(0.546667, 0.573034), 0.0, 0.0, 0, 0, Vector2(0.793333, 0.966292), 0.0, 0.0, 0, 0, Vector2(1, 0), -10.7865, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_wncyo"]
+curve = SubResource("Curve_q060c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5he6p"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+spread = 180.0
+initial_velocity_min = 95.73
+initial_velocity_max = 265.95
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.6
+scale_curve = SubResource("CurveTexture_wncyo")
+
+[node name="GPUStarsParticles" type="GPUParticles2D"]
+z_index = 20
+emitting = false
+texture = ExtResource("1_jltvf")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_5he6p")

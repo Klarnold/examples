@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://dewit0q0a01ne"]
+
+[ext_resource type="Script" uid="uid://cw8kh0jrih0ae" path="res://scenes/elements/character/character.gd" id="1_n4jse"]
+[ext_resource type="Texture2D" uid="uid://d2u1blmbfqo7x" path="res://assets/anya/clothes3.png" id="2_4c036"]
+[ext_resource type="Texture2D" uid="uid://dj83e5yjfqfv6" path="res://assets/anya/head.png" id="3_diwe1"]
+[ext_resource type="Texture2D" uid="uid://bksm8u7ecoyxn" path="res://assets/assets/eyes.png" id="3_ecvmv"]
+[ext_resource type="Texture2D" uid="uid://b1wmsemnm4vjn" path="res://assets/assets/sad.png" id="4_4c036"]
+[ext_resource type="Texture2D" uid="uid://dfl52h44gt871" path="res://assets/anya/hair1.png" id="6_jyssa"]
+
+[node name="Character" type="Control" groups=["character"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n4jse")
+
+[node name="Body" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4c036")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Head" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_diwe1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Eyes" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ecvmv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Emotion" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_4c036")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Hair" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_jyssa")
+expand_mode = 1
+stretch_mode = 5

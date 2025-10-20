@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://brg1f6r8w47cv"]
+
+[ext_resource type="Script" uid="uid://jshgs8l2ij4h" path="res://turrets/upgrades/description.gd" id="1_ga2ph"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga2ph"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[node name="Description" type="Control"]
+z_index = 22
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ga2ph")
+
+[node name="TextLabel" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 400.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_ga2ph")
+text = "sdasdasdsadasdas sd sd sda sd asd as das das d"
+autowrap_mode = 2

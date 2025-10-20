@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cabox5fopvvr"]
+
+[ext_resource type="Script" uid="uid://bh6dv210ulb0d" path="res://scenes/elements/action_cell/action_cell.gd" id="1_xc0f0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xc0f0"]
+
+[node name="ActionCell" type="TextureRect"]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 150.0
+offset_bottom = 150.0
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("1_xc0f0")
+
+[node name="CellArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+
+[node name="CellAreaShape" type="CollisionShape2D" parent="CellArea"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_xc0f0")

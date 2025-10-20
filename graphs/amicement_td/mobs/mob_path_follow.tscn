@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjdkobibsm07k"]
+
+[ext_resource type="Script" uid="uid://mk7u62yu87pe" path="res://map/mob_path_follow.gd" id="1_rl04o"]
+
+[node name="MobPathFollow" type="PathFollow2D"]
+script = ExtResource("1_rl04o")

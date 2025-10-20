@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=3 uid="uid://0ktfbuanhn48"]
+
+[ext_resource type="Script" uid="uid://dcnu5ubdwjkj8" path="res://ui/levels_menu.gd" id="1_wej6l"]
+[ext_resource type="PackedScene" uid="uid://4hhm62eyykg8" path="res://ui/level_button.tscn" id="2_rhoym"]
+
+[node name="LevelsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00127, 1)
+script = ExtResource("1_wej6l")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(1200, 800)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[shake]Уровни[/shake]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="Return" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.4
+text = "X"
+
+[node name="LevelsGridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/h_separation = 120
+theme_override_constants/v_separation = 60
+columns = 3
+
+[node name="LevelButton" parent="PanelContainer/VBoxContainer/LevelsGridContainer" instance=ExtResource("2_rhoym")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "1"
+
+[node name="LevelButton2" parent="PanelContainer/VBoxContainer/LevelsGridContainer" instance=ExtResource("2_rhoym")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "2"
+
+[node name="LevelButton3" parent="PanelContainer/VBoxContainer/LevelsGridContainer" instance=ExtResource("2_rhoym")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "3"
+
+[node name="LevelButton4" parent="PanelContainer/VBoxContainer/LevelsGridContainer" instance=ExtResource("2_rhoym")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "4"
+
+[node name="LevelButton5" parent="PanelContainer/VBoxContainer/LevelsGridContainer" instance=ExtResource("2_rhoym")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "5"
+
+[node name="LevelButton6" parent="PanelContainer/VBoxContainer/LevelsGridContainer" instance=ExtResource("2_rhoym")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "6"

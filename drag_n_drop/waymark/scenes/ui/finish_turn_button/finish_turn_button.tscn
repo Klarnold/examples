@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://lyi2yg5nckdu"]
+
+[ext_resource type="Script" uid="uid://c760rfec0ayqy" path="res://scenes/ui/finish_turn_button/finish_turn_button.gd" id="1_f2afn"]
+
+[node name="FinishTurnButton" type="Button"]
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_f2afn")

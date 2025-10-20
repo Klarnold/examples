@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://chomekq36lcxe"]
+
+[ext_resource type="Script" uid="uid://igvosc37vifd" path="res://turrets/turret.gd" id="1_amdcu"]
+[ext_resource type="Texture2D" uid="uid://28rkffksa53r" path="res://turrets/turret_base.png" id="1_gwjo0"]
+[ext_resource type="PackedScene" uid="uid://by070g21sfhkf" path="res://turrets/weapons/SimpleTurret.tscn" id="3_4c5rk"]
+
+[node name="Turret" type="Sprite2D"]
+texture = ExtResource("1_gwjo0")
+script = ExtResource("1_amdcu")
+packed_weapon = ExtResource("3_4c5rk")

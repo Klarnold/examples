@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://camsu3ok3kk38"]
+
+[ext_resource type="PackedScene" uid="uid://dgmgm1hn6d6n" path="res://scenes/player_side_scroller.tscn" id="1_iw1f6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70hyh"]
+size = Vector2(991, 130)
+
+[node name="SideScrollerMain" type="Node2D"]
+
+[node name="PlayerSideScroller" parent="." instance=ExtResource("1_iw1f6")]
+position = Vector2(438, 212)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(549, 443)
+shape = SubResource("RectangleShape2D_70hyh")

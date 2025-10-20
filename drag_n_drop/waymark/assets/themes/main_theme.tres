@@ -1,0 +1,38 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bi85o5f3auama"]
+
+[ext_resource type="StyleBox" uid="uid://c2ecigscje5xv" path="res://assets/themes/button_color_theme.tres" id="1_g21io"]
+[ext_resource type="StyleBox" uid="uid://brbfriwmbct5l" path="res://assets/themes/bg_color_theme.tres" id="1_rjgu6"]
+[ext_resource type="StyleBox" uid="uid://vj4icbnkgh5q" path="res://assets/themes/button_hover_color_theme.tres" id="2_7ceur"]
+[ext_resource type="StyleBox" uid="uid://cn2f8tfconi0v" path="res://assets/themes/resorces_color_theme.tres" id="2_vu6l5"]
+[ext_resource type="StyleBox" uid="uid://b5pl5ibnufyhn" path="res://assets/themes/button_press_color_theme.tres" id="3_uobgu"]
+[ext_resource type="StyleBox" uid="uid://culho2tlpb08j" path="res://assets/themes/button_overlay.tres" id="5_7ceur"]
+[ext_resource type="FontFile" uid="uid://qau64nbph7bb" path="res://assets/fonts/playfair display/static/PlayfairDisplay-Bold.ttf" id="7_s5e0q"]
+[ext_resource type="FontFile" uid="uid://dghy4hkl2ior8" path="res://assets/fonts/playfair display/static/PlayfairDisplay-BoldItalic.ttf" id="8_0x86e"]
+[ext_resource type="FontFile" uid="uid://ntalh6syoaa4" path="res://assets/fonts/playfair display/static/PlayfairDisplay-SemiBoldItalic.ttf" id="9_f5ubn"]
+[ext_resource type="FontFile" uid="uid://d06yr35etkhcn" path="res://assets/fonts/playfair display/static/PlayfairDisplay-SemiBold.ttf" id="10_7qy2x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5e0q"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[resource]
+Button/styles/disabled = ExtResource("1_g21io")
+Button/styles/focus = ExtResource("3_uobgu")
+Button/styles/hover = ExtResource("2_7ceur")
+Button/styles/normal = ExtResource("1_g21io")
+Button/styles/pressed = ExtResource("3_uobgu")
+Button/styles/pressed_mirrored = ExtResource("3_uobgu")
+Panel/styles/panel = ExtResource("1_rjgu6")
+Panel/styles/panel_dark = ExtResource("2_vu6l5")
+Panel/styles/panel_light = ExtResource("5_7ceur")
+RichTextLabel/colors/default_color = Color(0.972549, 0.917647, 1, 1)
+RichTextLabel/colors/font_selected_color = Color(0.756863, 1, 0.384314, 1)
+RichTextLabel/colors/selection_color = Color(0.733333, 0.235294, 0.870588, 0.764706)
+RichTextLabel/font_sizes/normal_font_size = 120
+RichTextLabel/fonts/bold_font = ExtResource("7_s5e0q")
+RichTextLabel/fonts/bold_italics_font = ExtResource("8_0x86e")
+RichTextLabel/fonts/italics_font = ExtResource("9_f5ubn")
+RichTextLabel/fonts/normal_font = ExtResource("10_7qy2x")
+RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_s5e0q")

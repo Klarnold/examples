@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmvoippol035w"]
+
+[ext_resource type="Script" uid="uid://bkhlnbwe8f161" path="res://turrets/weapons/weapon.gd" id="1_bcaef"]
+
+[node name="Weapon" type="Sprite2D"]
+script = ExtResource("1_bcaef")

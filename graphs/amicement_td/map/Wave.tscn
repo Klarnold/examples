@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://by4wy8th82w1l"]
+
+[ext_resource type="Script" uid="uid://c5qc8hhov15br" path="res://map/wave.gd" id="1_33hoj"]
+
+[node name="Wave" type="Node2D"]
+script = ExtResource("1_33hoj")
+next_wave_grid_offset = null
+
+[node name="WaveDelayTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TurretUpgrade" load_steps=3 format=3 uid="uid://c221o01v5731l"]
+
+[ext_resource type="PackedScene" uid="uid://bm6fg5fkwxqqk" path="res://turrets/weapons/projectiles/homing_rocket_turret.tscn" id="1_fn456"]
+[ext_resource type="Script" uid="uid://bg3g8nhscm8br" path="res://turrets/upgrades/turret_upgrade.gd" id="1_xddyx"]
+
+[resource]
+script = ExtResource("1_xddyx")
+cost = 1.0
+damage = 20.0
+detection_radius = 200.0
+fire_rate = 2.0
+bullet_speed = 300.0
+rotation_speed = 3.01681
+new_weapon_scene = ExtResource("1_fn456")
+metadata/_custom_type_script = "uid://bg3g8nhscm8br"

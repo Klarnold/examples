@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctktrkm1p67rx"]
+
+[ext_resource type="Script" uid="uid://bs84xixstwj7w" path="res://turrets/upgrades/upgrade_round.gd" id="1_7w7qy"]
+[ext_resource type="PackedScene" uid="uid://brg1f6r8w47cv" path="res://turrets/upgrades/description.tscn" id="2_7w7qy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psf0r"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[node name="UpgradeRound" type="PanelContainer"]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_psf0r")
+script = ExtResource("1_7w7qy")
+purchased_color = Color(0.22104, 0.537032, 0.963703, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+
+[node name="Description" parent="Control" instance=ExtResource("2_7w7qy")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 285.0
+offset_right = 341.0
+offset_bottom = 56.0
+
+[node name="Cost" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 2.0
+anchor_right = 0.5
+anchor_bottom = 2.0
+offset_left = -160.5
+offset_top = -45.0
+offset_right = 160.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "asdasdsad"
+horizontal_alignment = 1
+
+[node name="UpgradeCountContainer" type="VBoxContainer" parent="Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 0
+offset_left = 74.0
+offset_top = -8.0
+offset_right = 94.0
+offset_bottom = 60.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2

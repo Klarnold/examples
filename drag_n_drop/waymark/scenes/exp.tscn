@@ -1,0 +1,137 @@
+[gd_scene load_steps=13 format=3 uid="uid://mjb7q4fb54mr"]
+
+[ext_resource type="Script" path="res://scenes/exp.gd" id="1_ttdhd"]
+[ext_resource type="PackedScene" uid="uid://cabox5fopvvr" path="res://scenes/elements/action_cell/action_cell.tscn" id="2_7gp3u"]
+[ext_resource type="Texture2D" uid="uid://b1wmsemnm4vjn" path="res://assets/assets/sad.png" id="3_gtj16"]
+[ext_resource type="PackedScene" uid="uid://b4piyrbbv453e" path="res://scenes/elements/action_spawner/action_spawner.tscn" id="3_vrp6w"]
+[ext_resource type="Script" uid="uid://cxmfv0lio3gub" path="res://scripts/resources/action_res.gd" id="4_rmv6m"]
+[ext_resource type="Texture2D" uid="uid://co8c4jku52ts3" path="res://icon.svg" id="5_cybhl"]
+[ext_resource type="PackedScene" uid="uid://dcqpyicuvmdhi" path="res://scenes/ui/ingame_resource_pb/ingame_resource_pb.tscn" id="6_g10jr"]
+[ext_resource type="AnimationLibrary" uid="uid://cenab4skydk2w" path="res://assets/anim/animations_orientir.res" id="8_g10jr"]
+[ext_resource type="PackedScene" uid="uid://dewit0q0a01ne" path="res://scenes/elements/character/character.tscn" id="9_hwmkj"]
+
+[sub_resource type="Resource" id="Resource_rmv6m"]
+script = ExtResource("4_rmv6m")
+action_type = 0
+money = 0.0
+energy = 0.0
+mood = 0.0
+texture = ExtResource("3_gtj16")
+metadata/_custom_type_script = "uid://cxmfv0lio3gub"
+
+[sub_resource type="Resource" id="Resource_cybhl"]
+script = ExtResource("4_rmv6m")
+action_type = 0
+money = 0.0
+energy = 0.0
+mood = 0.0
+texture = ExtResource("5_cybhl")
+metadata/_custom_type_script = "uid://cxmfv0lio3gub"
+
+[sub_resource type="Resource" id="Resource_g10jr"]
+script = ExtResource("4_rmv6m")
+action_type = 0
+money = 0.0
+energy = 0.0
+mood = 0.0
+metadata/_custom_type_script = "uid://cxmfv0lio3gub"
+
+[node name="Exp" type="Node2D"]
+script = ExtResource("1_ttdhd")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+
+[node name="EnergyLabel" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 8.0
+offset_right = 1078.0
+offset_bottom = 158.0
+theme_override_constants/separation = 150
+
+[node name="ActionCell2" parent="Control/HBoxContainer" instance=ExtResource("2_7gp3u")]
+layout_mode = 2
+
+[node name="ActionCell4" parent="Control/HBoxContainer" instance=ExtResource("2_7gp3u")]
+layout_mode = 2
+
+[node name="ActionCell3" parent="Control/HBoxContainer" instance=ExtResource("2_7gp3u")]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="ActionSpawner" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("3_vrp6w")]
+layout_mode = 2
+texture = ExtResource("3_gtj16")
+expand_mode = 1
+stretch_mode = 5
+action_res = SubResource("Resource_rmv6m")
+main_texture = ExtResource("3_gtj16")
+
+[node name="ActionSpawner2" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("3_vrp6w")]
+layout_mode = 2
+action_res = SubResource("Resource_cybhl")
+
+[node name="ActionSpawner3" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("3_vrp6w")]
+layout_mode = 2
+action_res = SubResource("Resource_g10jr")
+
+[node name="EnergyPB" parent="Control" instance=ExtResource("6_g10jr")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 840.0
+offset_top = 232.0
+offset_right = 1105.0
+offset_bottom = 280.0
+value = 40.5
+resource_type = 2
+_max_value = 100.0
+_value = 40.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"animations_orientir": ExtResource("8_g10jr")
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 976.0
+offset_top = 344.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Character" parent="PanelContainer" instance=ExtResource("9_hwmkj")]
+layout_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 152.0
+offset_top = 176.0
+offset_right = 280.0
+offset_bottom = 304.0
+texture = ExtResource("5_cybhl")

@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgmgm1hn6d6n"]
+
+[ext_resource type="Script" uid="uid://cy484w2kuj5xx" path="res://scripts/player_side_scroller.gd" id="1_c0h1b"]
+[ext_resource type="Texture2D" uid="uid://brbb813sjt4oi" path="res://icon.svg" id="1_h2tft"]
+[ext_resource type="Script" uid="uid://bj42b48dkfgbe" path="res://scripts/sm.gd" id="3_fmbci"]
+[ext_resource type="Script" uid="uid://rgsbebh1qf53" path="res://scripts/moving_state.gd" id="4_fua65"]
+[ext_resource type="Script" uid="uid://piouhfp3ne1v" path="res://scripts/jumping_state.gd" id="5_xk1ch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0h1b"]
+size = Vector2(128, 128)
+
+[node name="PlayerSideScroller" type="CharacterBody2D"]
+script = ExtResource("1_c0h1b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h2tft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c0h1b")
+
+[node name="SM" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_fmbci")
+initial_state_path = "MovingState"
+metadata/_custom_type_script = "uid://bj42b48dkfgbe"
+
+[node name="MovingState" type="Node" parent="SM" node_paths=PackedStringArray("player")]
+script = ExtResource("4_fua65")
+player = NodePath("../..")
+
+[node name="JumpingState" type="Node" parent="SM" node_paths=PackedStringArray("player")]
+script = ExtResource("5_xk1ch")
+player = NodePath("../..")

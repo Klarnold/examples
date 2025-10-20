@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://by070g21sfhkf"]
+
+[ext_resource type="Texture2D" uid="uid://cv328i4tw2cc1" path="res://turrets/weapons/simple_cannon.png" id="1_tkb2q"]
+[ext_resource type="Script" uid="uid://d0x1vm2qlve42" path="res://turrets/weapons/simple_turret.gd" id="1_yneym"]
+[ext_resource type="PackedScene" uid="uid://ll4ll3c1imij" path="res://turrets/upgrades/upgrade_wheel.tscn" id="3_rmyo6"]
+[ext_resource type="PackedScene" uid="uid://ctktrkm1p67rx" path="res://turrets/upgrades/UpgradeRound.tscn" id="4_p55ew"]
+[ext_resource type="Texture2D" uid="uid://d23pary65bh6n" path="res://icons/icon_rocket.svg" id="5_sq5tm"]
+[ext_resource type="Script" uid="uid://bg3g8nhscm8br" path="res://turrets/upgrades/turret_upgrade.gd" id="6_lo4nn"]
+[ext_resource type="Texture2D" uid="uid://de4svd4dltypn" path="res://icons/icon_mob.svg" id="7_lo4nn"]
+[ext_resource type="Texture2D" uid="uid://ble3d0fr0mb3p" path="res://icons/icon_weapon.svg" id="8_qtric"]
+[ext_resource type="AudioStream" uid="uid://c5v6s3o5tkg47" path="res://assets/audio/simple_rocket_shoot.mp3" id="9_es8i6"]
+
+[sub_resource type="Resource" id="Resource_qtric"]
+script = ExtResource("6_lo4nn")
+cost = 50.0
+damage = 10.0
+detection_radius = 0.0
+fire_rate = 0.0
+bullet_speed = 100.0
+rotation_speed = 0.0
+metadata/_custom_type_script = "uid://bg3g8nhscm8br"
+
+[sub_resource type="Resource" id="Resource_es8i6"]
+script = ExtResource("6_lo4nn")
+cost = 75.0
+damage = 0.0
+detection_radius = 0.0
+fire_rate = 0.25
+bullet_speed = 0.0
+rotation_speed = 1.01681
+metadata/_custom_type_script = "uid://bg3g8nhscm8br"
+
+[sub_resource type="Resource" id="Resource_cnd6j"]
+script = ExtResource("6_lo4nn")
+cost = 100.0
+damage = 5.0
+detection_radius = 100.0
+fire_rate = 0.0
+bullet_speed = 30.0
+rotation_speed = 0.0
+metadata/_custom_type_script = "uid://bg3g8nhscm8br"
+
+[node name="SimpleTurret" type="Sprite2D"]
+texture = ExtResource("1_tkb2q")
+script = ExtResource("1_yneym")
+
+[node name="ShootMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(56, 0)
+
+[node name="UpgradeAnchor" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="UpgradeWheel" parent="UpgradeAnchor" instance=ExtResource("3_rmyo6")]
+unique_name_in_owner = true
+
+[node name="UpgradeRound" parent="UpgradeAnchor/UpgradeWheel" instance=ExtResource("4_p55ew")]
+layout_mode = 1
+offset_left = -214.0
+offset_top = -115.0
+offset_right = -150.0
+offset_bottom = -51.0
+texture = ExtResource("5_sq5tm")
+_upgrade_res = SubResource("Resource_qtric")
+description_text = "Damage + 10
+Bullet speed + 100"
+
+[node name="UpgradeRound2" parent="UpgradeAnchor/UpgradeWheel" instance=ExtResource("4_p55ew")]
+layout_mode = 1
+offset_top = -230.0
+offset_bottom = -166.0
+texture = ExtResource("7_lo4nn")
+_upgrade_res = SubResource("Resource_es8i6")
+description_text = "Fire Rate + 0.25/sec
+Rotation Speed + 1.0 rad/sec"
+
+[node name="UpgradeRound3" parent="UpgradeAnchor/UpgradeWheel" instance=ExtResource("4_p55ew")]
+layout_mode = 1
+offset_left = 161.0
+offset_top = -117.0
+offset_right = 225.0
+offset_bottom = -53.0
+texture = ExtResource("8_qtric")
+_upgrade_res = SubResource("Resource_cnd6j")
+description_text = "Damage + 5
+Detection Radius + 100
+Bullet Speed + 30"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_es8i6")
+volume_db = 5.0
+max_polyphony = 16

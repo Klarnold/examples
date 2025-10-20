@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://44njk126y36d"]
+
+[ext_resource type="Script" uid="uid://uesqju1vefcq" path="res://scenes/game/main_game/main_game.gd" id="1_6evmn"]
+[ext_resource type="PackedScene" uid="uid://dewit0q0a01ne" path="res://scenes/elements/character/character.tscn" id="2_sghad"]
+[ext_resource type="Script" uid="uid://bdd1bpd8xs2oc" path="res://assets/resources/character_res.gd" id="3_kl0f6"]
+
+[sub_resource type="Resource" id="Resource_epkje"]
+script = ExtResource("3_kl0f6")
+money = 295.6
+energy = 23.0
+mood = 40.0
+metadata/_custom_type_script = "uid://bdd1bpd8xs2oc"
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource("1_6evmn")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 656.0
+
+[node name="Character" parent="Control" instance=ExtResource("2_sghad")]
+layout_mode = 1
+character_res = SubResource("Resource_epkje")

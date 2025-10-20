@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://bkcswkbw53a6q"]
+
+[ext_resource type="Script" uid="uid://b0fpgldvkvlcj" path="res://turrets/upgrades/upgrade_wheel.gd" id="1_p143n"]
+[ext_resource type="Texture2D" uid="uid://blmh8xox2bosd" path="res://assets/rounds/32x32_Circle_3.png" id="2_8qwlr"]
+[ext_resource type="PackedScene" uid="uid://ctktrkm1p67rx" path="res://turrets/upgrades/UpgradeRound.tscn" id="3_urgoe"]
+[ext_resource type="Texture2D" uid="uid://ble3d0fr0mb3p" path="res://icons/icon_weapon.svg" id="4_ayswn"]
+[ext_resource type="PackedScene" uid="uid://by070g21sfhkf" path="res://turrets/weapons/SimpleTurret.tscn" id="5_ibs7d"]
+[ext_resource type="Script" uid="uid://bg3g8nhscm8br" path="res://turrets/upgrades/turret_upgrade.gd" id="6_4vrou"]
+[ext_resource type="Texture2D" uid="uid://d23pary65bh6n" path="res://icons/icon_rocket.svg" id="7_ayswn"]
+[ext_resource type="PackedScene" uid="uid://bm6fg5fkwxqqk" path="res://turrets/weapons/projectiles/homing_rocket_turret.tscn" id="8_ibs7d"]
+
+[sub_resource type="Resource" id="Resource_7dgpa"]
+script = ExtResource("6_4vrou")
+cost = 40.0
+damage = 0.0
+detection_radius = 0.0
+fire_rate = 0.0
+bullet_speed = 0.0
+rotation_speed = 0.0
+new_weapon_scene = ExtResource("5_ibs7d")
+metadata/_custom_type_script = "uid://bg3g8nhscm8br"
+
+[sub_resource type="Resource" id="Resource_4vrou"]
+script = ExtResource("6_4vrou")
+cost = 100.0
+damage = 0.0
+detection_radius = 0.0
+fire_rate = 0.0
+bullet_speed = 0.0
+rotation_speed = 0.0
+new_weapon_scene = ExtResource("8_ibs7d")
+metadata/_custom_type_script = "uid://bg3g8nhscm8br"
+
+[node name="TurretWheel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_p143n")
+metadata/_custom_type_script = "uid://b0fpgldvkvlcj"
+
+[node name="UpgradeWheelTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+pivot_offset = Vector2(256, 256)
+mouse_filter = 2
+texture = ExtResource("2_8qwlr")
+
+[node name="UpgradeRound" parent="UpgradeWheelTexture" instance=ExtResource("3_urgoe")]
+layout_mode = 1
+offset_left = -188.0
+offset_top = -165.0
+offset_right = -124.0
+offset_bottom = -101.0
+texture = ExtResource("4_ayswn")
+_upgrade_res = SubResource("Resource_7dgpa")
+upgrades_cap = 1
+description_text = "High fire rate turret."
+
+[node name="UpgradeRound2" parent="UpgradeWheelTexture" instance=ExtResource("3_urgoe")]
+layout_mode = 1
+offset_left = 142.0
+offset_top = -165.0
+offset_right = 206.0
+offset_bottom = -101.0
+texture = ExtResource("7_ayswn")
+_upgrade_res = SubResource("Resource_4vrou")
+upgrades_cap = 1
+description_text = "Homing rocket launcher with AoE damage."

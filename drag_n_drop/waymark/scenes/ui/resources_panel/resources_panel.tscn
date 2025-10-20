@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=3 uid="uid://b10wypwwwl6v7"]
+
+[ext_resource type="PackedScene" uid="uid://dcqpyicuvmdhi" path="res://scenes/ui/ingame_resource_pb/ingame_resource_pb.tscn" id="1_f0o32"]
+[ext_resource type="Script" uid="uid://d1edd8m24yrg5" path="res://scenes/ui/resources_panel/resources_panel.gd" id="1_uu5s7"]
+[ext_resource type="Texture2D" uid="uid://tbnnfsw55pul" path="res://assets/exp/most rounded/progress bar most rounded over.png" id="2_uu5s7"]
+[ext_resource type="Texture2D" uid="uid://cctry3gfvws0m" path="res://assets/exp/most rounded/progress bar most rounded progress orange.png" id="3_rs07v"]
+[ext_resource type="Texture2D" uid="uid://brk54qwrr2mr3" path="res://assets/exp/most rounded/progress bar most rounded progress blue.png" id="4_tnyq3"]
+[ext_resource type="PackedScene" uid="uid://cabox5fopvvr" path="res://scenes/elements/action_cell/action_cell.tscn" id="5_t12kl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uu5s7"]
+texture = ExtResource("2_uu5s7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rs07v"]
+texture = ExtResource("3_rs07v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tnyq3"]
+texture = ExtResource("2_uu5s7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t12kl"]
+texture = ExtResource("4_tnyq3")
+
+[node name="ResourcesPanel" type="VBoxContainer"]
+custom_minimum_size = Vector2(400, 400)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_uu5s7")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(350, 320)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="MoneyLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 32
+text = "деньги: "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.45
+theme_override_font_sizes/normal_font_size = 20
+text = "энергия"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IngameResourcePB" parent="PanelContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_f0o32")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxTexture_uu5s7")
+theme_override_styles/fill = SubResource("StyleBoxTexture_rs07v")
+value = 50.0
+resource_type = 2
+_max_value = 100.0
+_value = 50.0
+texture_over = ExtResource("3_rs07v")
+texture_under = ExtResource("2_uu5s7")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.45
+theme_override_font_sizes/normal_font_size = 20
+text = "настроение"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IngameResourcePB2" parent="PanelContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_f0o32")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxTexture_tnyq3")
+theme_override_styles/fill = SubResource("StyleBoxTexture_t12kl")
+value = 50.0
+resource_type = 3
+_max_value = 100.0
+_value = 50.0
+texture_over = ExtResource("4_tnyq3")
+texture_under = ExtResource("2_uu5s7")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/separation = 85
+
+[node name="ActionCell" parent="HBoxContainer" instance=ExtResource("5_t12kl")]
+layout_mode = 2
+
+[node name="ActionCell2" parent="HBoxContainer" instance=ExtResource("5_t12kl")]
+layout_mode = 2
+
+[node name="ActionCell3" parent="HBoxContainer" instance=ExtResource("5_t12kl")]
+layout_mode = 2

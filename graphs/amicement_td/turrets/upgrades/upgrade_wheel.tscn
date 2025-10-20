@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ll4ll3c1imij"]
+
+[ext_resource type="Texture2D" uid="uid://blmh8xox2bosd" path="res://assets/rounds/32x32_Circle_3.png" id="1_glot7"]
+[ext_resource type="Script" uid="uid://b0fpgldvkvlcj" path="res://turrets/upgrades/upgrade_wheel.gd" id="1_xbjho"]
+
+[node name="UpgradeWheel" type="Control"]
+visible = false
+z_index = 100
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_xbjho")
+
+[node name="UpgradeWheelTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+pivot_offset = Vector2(256, 256)
+mouse_filter = 2
+texture = ExtResource("1_glot7")

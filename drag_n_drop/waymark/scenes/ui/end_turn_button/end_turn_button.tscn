@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvc110ow8qa6w"]
+
+[ext_resource type="Script" uid="uid://dtf8tyiwktcrg" path="res://scenes/ui/end_turn_button/end_turn_button.gd" id="1_2g7r7"]
+[ext_resource type="FontFile" uid="uid://2ms0awc4u8eg" path="res://assets/fonts/playfair display/static/PlayfairDisplay-Black.ttf" id="1_5fh26"]
+
+[node name="EndTurnButton" type="Button"]
+offset_right = 120.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_5fh26")
+text = "Рассчитать
+ход"
+script = ExtResource("1_2g7r7")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://08d2hdrfdma7"]
+
+[ext_resource type="Texture2D" uid="uid://co8c4jku52ts3" path="res://icon.svg" id="1_gev7k"]
+[ext_resource type="Script" uid="uid://bkxuqjul2cm6p" path="res://scenes/elements/action/action.gd" id="2_w5b2v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tukrl"]
+size = Vector2(128, 128)
+
+[node name="Action" type="TextureRect" groups=["action"]]
+visible = false
+z_index = 10
+custom_minimum_size = Vector2(45, 45)
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("1_gev7k")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_w5b2v")
+
+[node name="ActionArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 2
+
+[node name="ActionShape" type="CollisionShape2D" parent="ActionArea"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_tukrl")

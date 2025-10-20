@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfsa1qjc872co"]
+
+[ext_resource type="Script" uid="uid://dy87q7eomaurp" path="res://ui/credits.gd" id="1_ed0b0"]
+
+[sub_resource type="Environment" id="Environment_ed0b0"]
+ambient_light_source = 3
+fog_enabled = true
+fog_light_color = Color(0.0119747, 0.0144936, 0.0190329, 1)
+
+[node name="Credits" type="Node3D"]
+script = ExtResource("1_ed0b0")
+
+[node name="CreditsText1" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.99999, 0.000945751, 0.00430501, -0.000944604, 1, -0.000267693, -0.00430526, 0.000263613, 0.999991, 0, -2.86663, 0)
+text = "День за днём и год за годом злобные крысы терроризируют наше Королевство в бесконечном цикле страданий!"
+autowrap_mode = 2
+
+[node name="CreditsText2" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.86299, 0)
+text = "приходит и облегчает нашу жизнь! Спасибо! (да, ты всё это время работал за \"спасибо\")"
+autowrap_mode = 2
+
+[node name="CreditsText3" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.67486, 0)
+text = "Слава богине Деменции, что появился Великий герой, который раз за разом"
+autowrap_mode = 2
+
+[node name="CreditsText4" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.24426, 0)
+text = "И всё повторится вновь, ибо таков путь причинности..."
+autowrap_mode = 2
+
+[node name="CreditsText5" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.74115, 0)
+text = "А я говорил тебе притчу о причинности? Ну так вот..."
+autowrap_mode = 2
+
+[node name="CameraAnchot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.645244, -0.763976, 0, 0.763976, 0.645244, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.854105, -0.520101, 0, 0.520101, 0.854105, 0, -1.52795, 1.29049)
+fov = 90.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ReturnButton" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+offset_right = 16.0
+offset_bottom = 16.0
+theme_override_font_sizes/font_size = 48
+text = "X"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ed0b0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.78771, 0.616046, 0, -0.616046, 0.78771, 0, 0, 1.94501)
+shadow_enabled = true
